@@ -3,9 +3,7 @@
 // @import "./base/index";
 // @import "./pages/";
 // Import other Sass files
-@import 'components/index';
-@import '_abstracts';
-@import '_base';
-@import '_pages';
-
-
+@import "components/index";
+@import "abstracts/index";
+@import "base/index";
+@import "pages/index";

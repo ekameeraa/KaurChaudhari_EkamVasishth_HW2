@@ -1,82 +1,149 @@
-/*
-Error: File to import not found or unreadable: ../abstracts/_variables.
-       Load path: C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass
-        on line 1 of C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass/components/_footer.scss
-        from line 1 of C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass/components/_index.scss
-        from line 6 of C:\IDP3- (level 4)\Multimedia Authoring (5006)\kaur_ekam_HW2\sass\main.scss
+@import url("https://fonts.googleapis.com/css2?family=raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=raleway&display=swap");
+@use "fonts";
+.container {
+  max-width: 1280px;
+  margin: auto; }
 
-1: // @import "./components/index";
-2: // @import "./abstratcs/index";
-3: // @import "./base/index";
-4: // @import "./pages/";
-5: // Import other Sass files
-6: @import 'components/index';
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #0c8bd6;
+  height: auto; }
+  .footer__social-links {
+    flex: 1 1 0px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    justify-items: flex-start;
+    background-image: url("../images/contact-pic.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    background-position: center center; }
+  .footer .social-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 10px;
+    margin-left: 50px; }
+  .footer__copyright {
+    background-color: #4b008d;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-family: "raleway-bold";
+    font-size: 20px;
+    font-weight: bold; }
+  .footer__contact-form {
+    width: 100%;
+    min-width: 400px;
+    padding: 20px;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin: auto;
+    display: flex;
+    flex: 1 1 0px; }
+    .footer__contact-form .footer {
+      display: flex;
+      flex-direction: row;
+      background-color: #1e1e1e;
+      height: auto; }
+      .footer__contact-form .footer__social-links {
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        justify-items: flex-start;
+        margin-left: 50px;
+        background-image: url("../images/contact-pic.png");
+        background-position: center center;
+        background-repeat: none; }
+      .footer__contact-form .footer .social-icon {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 10px;
+        margin-left: 50px; }
+      .footer__contact-form .footer__contact-form {
+        width: 100%;
+        justify-content: center;
+        justify-self: center;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+        margin: auto;
+        display: flex;
+        background-color: white; }
+        .footer__contact-form .footer__contact-form input[type="submit"] {
+          background-color: #af0000;
+          color: #fff;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 30px;
+          width: 100%; }
+        .footer__contact-form .footer__contact-form label {
+          display: block;
+          font-weight: 600; }
+        .footer__contact-form .footer__contact-form input[type="submit"]:hover {
+          background-color: #4a4a4a;
+          font-weight: bold;
+          color: #fff; }
+    .footer__contact-form #contact_form {
+      width: 100%; }
+    .footer__contact-form input[type="submit"] {
+      background-color: #af0000;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 30px; }
+    .footer__contact-form label {
+      display: block;
+      font-weight: 600;
+      color: white; }
+    .footer__contact-form input, .footer__contact-form select, .footer__contact-form textarea {
+      width: 100%; }
+    .footer__contact-form input[type="submit"]:hover {
+      background-color: #4a4a4a;
+      font-weight: bold;
+      color: #fff; }
 
-Backtrace:
-C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass/components/_footer.scss:1
-C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass/components/_index.scss:1
-C:\IDP3- (level 4)\Multimedia Authoring (5006)\kaur_ekam_HW2\sass\main.scss:6
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:67:in `rescue in import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:45:in `import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:28:in `imported_file'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:37:in `css_import?'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:314:in `visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `block in with_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `with_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `block in with_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `with_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:161:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
-C:/Program Files (x86)/Koala/bin/sass:22:in `load'
-C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: ../abstracts/_variables.\A        Load path: C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass\A         on line 1 of C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass/components/_footer.scss\A         from line 1 of C:/IDP3- (level 4)/Multimedia Authoring (5006)/kaur_ekam_HW2/sass/components/_index.scss\A         from line 6 of C:\IDP3- (level 4)\Multimedia Authoring (5006)\kaur_ekam_HW2\sass\main.scss\A \A 1: // @import \"./components/index\";\A 2: // @import \"./abstratcs/index\";\A 3: // @import \"./base/index\";\A 4: // @import \"./pages/\";\A 5: // Import other Sass files\A 6: @import 'components/index';"; }
+@use "../abstracts" as a;
+@use "fonts";
+@use "mixins" as m;
+.heading {
+  background-color: #333;
+  color: #fafafa;
+  text-align: center;
+  padding: 20px 0; }
+
+.heading h1 {
+  color: #4b008d;
+  font-size: 32px;
+  font-family: "raleway-bold";
+  margin: 0; }
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    align-items: center; }
+    .nav-list.active {
+      display: flex; } }
+@use "fonts";
+@use "mixins" as m;
+@use "../abstracts/variables" as v;
+
+/*# sourceMappingURL=main.css.map */
