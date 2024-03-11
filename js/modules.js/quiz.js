@@ -96,7 +96,7 @@ const quizData = [
 const quiz = new Quiz(quizData);
 
 export function renderQuestions() {
-  const questionsContainer = document.getElementById("questions-container");
+  const questionsContainer = document.querySelector("#questions-container");
   questionsContainer.innerHTML = "";
 
   quizData.forEach((question, index) => {
@@ -118,7 +118,7 @@ export function renderQuestions() {
     questionsContainer.appendChild(questionElement);
   });
 
-  document.getElementById("submit-btn").style.display = "block";
+  document.querySelector("#submit-btn").style.display = "block";
 }
 
 export function submitAnswers() {
@@ -136,11 +136,11 @@ export function submitAnswers() {
 }
 
 function renderResult() {
-  const resultContainer = document.getElementById("result-container");
+  const resultContainer = document.querySelector("#result-container");
   resultContainer.style.display = "block";
   resultContainer.textContent = `Score: ${quiz.score}/${quiz.totalQuestions}`;
 
-  document.getElementById("submit-btn").style.display = "none";
+  document.querySelector("#submit-btn").style.display = "none";
 
   document.querySelectorAll('input[type="radio"]').forEach((radio) => {
     radio.checked = false;
@@ -151,5 +151,5 @@ function renderResult() {
 export function resetQuiz() {
   console.log("hellllo");
   renderResult();
-  document.getElementById("submit-btn").style.display = "block";
+  document.querySelector("#submit-btn").style.display = "block";
 }
