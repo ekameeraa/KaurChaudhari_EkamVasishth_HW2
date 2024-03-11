@@ -1,4 +1,3 @@
-// Define the Quiz class
 class Quiz {
   constructor(questions) {
     this.questions = questions;
@@ -30,7 +29,6 @@ class Quiz {
   }
 }
 
-// Create a new instance of the Quiz class
 const quizData = [
   {
     question: 'Who is known as "The Rock" in WWE?',
@@ -97,7 +95,6 @@ const quizData = [
 
 const quiz = new Quiz(quizData);
 
-// Function to render all questions and options
 export function renderQuestions() {
   const questionsContainer = document.getElementById("questions-container");
   questionsContainer.innerHTML = "";
@@ -124,7 +121,6 @@ export function renderQuestions() {
   document.getElementById("submit-btn").style.display = "block";
 }
 
-// Function to submit all answers
 export function submitAnswers() {
   const forms = document.querySelectorAll("#quiz-form .options-container");
   forms.forEach((form, index) => {
@@ -139,8 +135,6 @@ export function submitAnswers() {
   renderResult();
 }
 
-// Function to render the result of the quiz
-
 function renderResult() {
   const resultContainer = document.getElementById("result-container");
   resultContainer.style.display = "block";
@@ -148,7 +142,6 @@ function renderResult() {
 
   document.getElementById("submit-btn").style.display = "none";
 
-  // Allow quiz to be submitted again after showing result
   document.querySelectorAll('input[type="radio"]').forEach((radio) => {
     radio.checked = false;
   });
@@ -160,5 +153,3 @@ export function resetQuiz() {
   renderResult();
   document.getElementById("submit-btn").style.display = "block";
 }
-
-// Initial render
