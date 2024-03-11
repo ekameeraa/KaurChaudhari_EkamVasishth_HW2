@@ -1,3 +1,11 @@
-@import "sass/components/index";
-@import "sass/layout";
-@import "sass/grid";
+// @import "./components/index";
+// @import "./abstratcs/index";
+// @import "./base/index";
+// @import "./pages/";
+// Import other Sass files
+@import 'components/index';
+@import '_abstracts';
+@import '_base';
+@import '_pages';
+
+
