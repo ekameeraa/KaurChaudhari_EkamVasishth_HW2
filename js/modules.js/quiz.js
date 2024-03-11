@@ -6,11 +6,9 @@ class Quiz {
     this.totalQuestions = this.questions.length;
   }
 
-  getCurrentQuestion() {
-    return this.questions[this.currentQuestionIndex];
-  }
+  getCurrentQuestion = () => this.questions[this.currentQuestionIndex];
 
-  answerQuestion(selectedOption) {
+  answerQuestion = (selectedOption) => {
     const currentQuestion = this.getCurrentQuestion();
     if (selectedOption === currentQuestion.correct_option) {
       this.score++;
@@ -18,11 +16,9 @@ class Quiz {
     this.currentQuestionIndex++;
   }
 
-  isQuizFinished() {
-    return this.currentQuestionIndex === this.totalQuestions;
-  }
+  isQuizFinished = () => this.currentQuestionIndex === this.totalQuestions;
 
-  resetQuiz() {
+  resetQuiz = () => {
     console.log("reset quiz called");
     this.currentQuestionIndex = 0;
     this.score = 0;
@@ -95,8 +91,8 @@ const quizData = [
 
 const quiz = new Quiz(quizData);
 
-export function renderQuestions() {
-  const questionsContainer = document.getElementById("questions-container");
+export const renderQuestions = () => {
+  const questionsContainer = document.querySelector("#questions-container");
   questionsContainer.innerHTML = "";
 
   quizData.forEach((question, index) => {
@@ -105,51 +101,45 @@ export function renderQuestions() {
     questionElement.innerHTML = `
           <p>${index + 1}. ${question.question}</p>
           <div class="options-container">
-            ${question.options
-              .map(
-                (option, optionIndex) => `
+            ${question.options.map((option, optionIndex) => `
               <input type="radio" id="option-${index}-${optionIndex}" name="option-${index}" value="${option}">
-              <label for="option-${index}-${optionIndex}">${option}</label><br>
-            `
-              )
-              .join("")}
+              <label for="option-${index}-${optionIndex}">${option}</label>
+            `).join("")}
           </div>
         `;
     questionsContainer.appendChild(questionElement);
   });
 
-  document.getElementById("submit-btn").style.display = "block";
-}
+  document.querySelector("#submit-btn").style.display = "block";
+};
 
-export function submitAnswers() {
+export const submitAnswers = () => {
   const forms = document.querySelectorAll("#quiz-form .options-container");
   forms.forEach((form, index) => {
-    const selectedOption = form.querySelector(
-      `input[name="option-${index}"]:checked`
-    );
+    const selectedOption = form.querySelector(`input[name="option-${index}"]:checked`);
     if (selectedOption) {
       quiz.answerQuestion(selectedOption.value);
     }
   });
 
   renderResult();
-}
+};
 
-function renderResult() {
-  const resultContainer = document.getElementById("result-container");
+const renderResult = () => {
+  const resultContainer = document.querySelector("#result-container");
   resultContainer.style.display = "block";
   resultContainer.textContent = `Score: ${quiz.score}/${quiz.totalQuestions}`;
 
-  document.getElementById("submit-btn").style.display = "none";
+  document.querySelector("#submit-btn").style.display = "none";
 
   document.querySelectorAll('input[type="radio"]').forEach((radio) => {
     radio.checked = false;
   });
   quiz.resetQuiz();
-}
+};
 
-export function resetQuiz() {
-  console.log("hellllo");
+export const resetQuiz = () => {
+  console.log("resetQuiz called");
   renderResult();
-  document.getElementById("submit-btn").style.display = "block";
-}
+  document.querySelector("#submit-btn").style.display = "block";
+};

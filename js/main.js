@@ -2,12 +2,9 @@ import {
   renderQuestions,
   submitAnswers,
   resetQuiz,
-} from "./modules.js/quiz.js";
+} from './modules.js/quiz.js';
 
 renderQuestions();
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById("submit-btn").onclick = submitAnswers;
-    
-    document.getElementById("reset-btn").onclick = resetQuiz;
-});
+document.querySelector('#submit-btn').onclick = () => submitAnswers();
+document.querySelector('#reset-btn').onclick = () => resetQuiz();
