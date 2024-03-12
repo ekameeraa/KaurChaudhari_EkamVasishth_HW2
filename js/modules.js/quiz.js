@@ -175,9 +175,17 @@ export function resetQuiz() {
   quiz.resetQuiz();
   // Reset the UI
   document.querySelectorAll("#quiz-form label").forEach(label => {
-    label.style.backgroundColor = "";
+    label.style.backgroundColor = ""; // Clear any background color
   });
-  renderQuestions();
+  // Clear any correct or incorrect class added to labels
+  document.querySelectorAll("label").forEach(label => {
+    label.classList.remove("incorrect", "correct");
+  });
+  // Remove any displayed correct answer
+  document.querySelectorAll(".correct-answer").forEach(element => {
+    element.remove();
+  });
+  renderQuestions(); // Re-render the questions to reset the form
   document.querySelector("#submit-btn").style.display = "block";
   // Hide the result container since the quiz is starting over
   const resultContainer = document.querySelector("#result-container");

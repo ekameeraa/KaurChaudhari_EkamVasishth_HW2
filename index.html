@@ -1,42 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OOP JS, MODULES AND BUNDLING</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-  <link href="css/grid.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
+body {
+  font-family: "Raleway", sans-serif;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
 
-</head>
+header.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-<body>
-  <header class="heading">
-    <h1> QUIZ TIME FOR - WWE CHAMPIONSHIP!</h1>
-  </header>
+header.heading h1 {
+  color: #007bff;
+}
 
-  <div id="quiz-container">
-    <h2 class="hidden">Quiz</h2>
-    <form id="quiz-form" onsubmit="return false;">
-      <div id="questions-container">
-      </div>
-      <button type="submit" id="submit-btn">Submit Answers</button>
-    </form>
+h1, h2 {
+  text-align: center;
+}
 
-    <button id="reset-btn">Reset Quiz</button>
-    <div id="result-container" style="display: none"></div>
-  </div>
-  <!-- footer -->
-  <footer class="copyright">
-    <div class="footer-copyright">@2024 Copyright- WWE NETWORK.</div>
-  </footer>
-  <!-- js -->
-  <script defer type="module" src="js/main.js"></script>
-</body>
+/* Quiz container styles */
+#quiz-container {
+  background: white;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
 
-</html>
+.question {
+  margin-bottom: 15px;
+}
+
+.options-container {
+  margin-top: 10px;
+}
+
+/* Input and Label styling */
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio] + label {
+  display: block;
+  background: #f0f0f0;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type=radio]:checked + label {
+  background-color: #c3cfe2;
+  color: white;
+}
+
+/* Button styling */
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+#result-container {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.incorrect {
+  background-color: #F44336;
+  color: #FFFFFF;
+}
+
+.correct {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}
+
+.correct-answer {
+  margin-top: -17px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: green;
+  display: block;
+}
+
+.question {
+  margin-bottom: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  #quiz-container {
+    width: 95%;
+    margin: 10px auto;
+  }
+  button, input[type=radio] + label {
+    padding: 15px;
+  }
+}
