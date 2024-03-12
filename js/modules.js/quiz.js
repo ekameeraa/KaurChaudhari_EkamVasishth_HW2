@@ -128,7 +128,7 @@ export function submitAnswers() {
     const selectedOption = form.querySelector(`input[name="option-${index}"]:checked`);
     const questionContainer = form.parentElement;
 
-    // Remove existing correct answer display
+
     const existingCorrectAnswerDisplay = questionContainer.querySelector(".correct-answer");
     if (existingCorrectAnswerDisplay) {
       existingCorrectAnswerDisplay.remove();
@@ -139,9 +139,9 @@ export function submitAnswers() {
       const selectedLabel = form.querySelector(`label[for="${selectedOption.id}"]`);
 
       if (selectedOption.value !== question.correct_option) {
-        // Indicate the selected option is incorrect
+
         selectedLabel.classList.add("incorrect");
-        // Display the correct answer below the options
+
         const correctAnswerDisplay = document.createElement("div");
         correctAnswerDisplay.classList.add("correct-answer");
         correctAnswerDisplay.textContent = `Correct Answer: ${question.correct_option}`;
@@ -171,15 +171,15 @@ function renderResult() {
 }
 
 export function resetQuiz() {
-  // Reset the quiz data
+
   quiz.resetQuiz();
-  // Reset the UI
+
   document.querySelectorAll("#quiz-form label").forEach(label => {
     label.style.backgroundColor = "";
   });
   renderQuestions();
   document.querySelector("#submit-btn").style.display = "block";
-  // Hide the result container since the quiz is starting over
+
   const resultContainer = document.querySelector("#result-container");
   resultContainer.style.display = "none";
 }
