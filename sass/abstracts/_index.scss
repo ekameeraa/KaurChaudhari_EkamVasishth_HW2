@@ -1,4 +1,4 @@
-// @import all partials, so they can be used in one file e.g. abstracts
-@import "_mixins";
-@import "_variables";
-@import "_fonts";
+// forward all partials, so they can be used in one file e.g. abstracts
+@forward "_variables";
+@forward "_mixins";
+@forward "_fonts";

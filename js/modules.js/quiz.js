@@ -106,13 +106,13 @@ export function renderQuestions() {
           <p>${index + 1}. ${question.question}</p>
           <div class="options-container">
             ${question.options
-              .map(
-                (option, optionIndex) => `
+        .map(
+          (option, optionIndex) => `
               <input type="radio" id="option-${index}-${optionIndex}" name="option-${index}" value="${option}">
               <label for="option-${index}-${optionIndex}">${option}</label><br>
             `
-              )
-              .join("")}
+        )
+        .join("")}
           </div>
         `;
     questionsContainer.appendChild(questionElement);
@@ -124,16 +124,38 @@ export function renderQuestions() {
 export function submitAnswers() {
   const forms = document.querySelectorAll("#quiz-form .options-container");
   forms.forEach((form, index) => {
-    const selectedOption = form.querySelector(
-      `input[name="option-${index}"]:checked`
-    );
+    const question = quiz.questions[index];
+    const selectedOption = form.querySelector(`input[name="option-${index}"]:checked`);
+    const questionContainer = form.parentElement;
+
+    // Remove existing correct answer display
+    const existingCorrectAnswerDisplay = questionContainer.querySelector(".correct-answer");
+    if (existingCorrectAnswerDisplay) {
+      existingCorrectAnswerDisplay.remove();
+    }
+
     if (selectedOption) {
       quiz.answerQuestion(selectedOption.value);
+      const selectedLabel = form.querySelector(`label[for="${selectedOption.id}"]`);
+
+      if (selectedOption.value !== question.correct_option) {
+        // Indicate the selected option is incorrect
+        selectedLabel.classList.add("incorrect");
+        // Display the correct answer below the options
+        const correctAnswerDisplay = document.createElement("div");
+        correctAnswerDisplay.classList.add("correct-answer");
+        correctAnswerDisplay.textContent = `Correct Answer: ${question.correct_option}`;
+        correctAnswerDisplay.style.color = "green";
+        questionContainer.appendChild(correctAnswerDisplay);
+      } else {
+        selectedLabel.classList.add("correct");
+      }
     }
   });
 
   renderResult();
 }
+
 
 function renderResult() {
   const resultContainer = document.querySelector("#result-container");
@@ -149,7 +171,23 @@ function renderResult() {
 }
 
 export function resetQuiz() {
-  console.log("hellllo");
-  renderResult();
+  // Reset the quiz data
+  quiz.resetQuiz();
+  // Reset the UI
+  document.querySelectorAll("#quiz-form label").forEach(label => {
+    label.style.backgroundColor = ""; // Clear any background color
+  });
+  // Clear any correct or incorrect class added to labels
+  document.querySelectorAll("label").forEach(label => {
+    label.classList.remove("incorrect", "correct");
+  });
+  // Remove any displayed correct answer
+  document.querySelectorAll(".correct-answer").forEach(element => {
+    element.remove();
+  });
+  renderQuestions(); // Re-render the questions to reset the form
   document.querySelector("#submit-btn").style.display = "block";
+  // Hide the result container since the quiz is starting over
+  const resultContainer = document.querySelector("#result-container");
+  resultContainer.style.display = "none";
 }

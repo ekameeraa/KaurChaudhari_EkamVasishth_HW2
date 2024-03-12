@@ -1,3 +1,2 @@
-@import "_footer";
-@import "_card";
-@import "_header";
+@forward 'button';
+@forward 'quiz-container';

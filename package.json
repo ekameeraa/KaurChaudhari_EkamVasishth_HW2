@@ -1,0 +1,17 @@
+{
+  "name": "kaurchaudhari_ekamvasishth_hw2",
+  "version": "1.0.0",
+  "description": "OOP JS, MODULES AND BUNDLING",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+  ,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
