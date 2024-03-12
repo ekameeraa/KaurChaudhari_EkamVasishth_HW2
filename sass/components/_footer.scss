@@ -1,0 +1,14 @@
+@import "../abstracts/_variables";
+
+.copyright {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: $bg-color;
+  height: auto;
+  padding: 10px 10px;
+  justify-content: center;
+  font-weight: bold;
+  color: $secondary-color;
+  font-family: $heading-font-family;
+}

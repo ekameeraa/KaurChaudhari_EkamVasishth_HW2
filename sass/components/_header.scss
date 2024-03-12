@@ -1,0 +1,32 @@
+@import "../abstracts/_variables";
+@import "../abstracts/_fonts";
+
+.heading {
+  background-color: $bg-color;
+  color: $accent-color;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.heading h1 {
+  color: $primary-color;
+  font-size: 32px;
+  font-family: $heading-font-family;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    &.active {
+      display: flex;
+    }
+  }
+}

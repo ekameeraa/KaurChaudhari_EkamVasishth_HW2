@@ -22,6 +22,28 @@ button {
     margin-top: 20px;
   }
   
+  .incorrect {
+    background-color: #F44336; 
+    color: #FFFFFF; 
+  }
+  
+  .correct {
+    background-color: #4CAF50; 
+    color: #FFFFFF; 
+  }
+  
+  .correct-answer {
+    margin-top: -17px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: green; 
+    display: block; 
+  }
+  .question {
+    margin-bottom: 30px; 
+  }
+  
+  
   /* Responsive adjustments */
   @media (max-width: 640px) {
     #quiz-container {

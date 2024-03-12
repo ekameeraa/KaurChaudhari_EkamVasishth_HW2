@@ -6,9 +6,11 @@ class Quiz {
     this.totalQuestions = this.questions.length;
   }
 
-  getCurrentQuestion = () => this.questions[this.currentQuestionIndex];
+  getCurrentQuestion() {
+    return this.questions[this.currentQuestionIndex];
+  }
 
-  answerQuestion = (selectedOption) => {
+  answerQuestion(selectedOption) {
     const currentQuestion = this.getCurrentQuestion();
     if (selectedOption === currentQuestion.correct_option) {
       this.score++;
@@ -16,9 +18,11 @@ class Quiz {
     this.currentQuestionIndex++;
   }
 
-  isQuizFinished = () => this.currentQuestionIndex === this.totalQuestions;
+  isQuizFinished() {
+    return this.currentQuestionIndex === this.totalQuestions;
+  }
 
-  resetQuiz = () => {
+  resetQuiz() {
     console.log("reset quiz called");
     this.currentQuestionIndex = 0;
     this.score = 0;
@@ -91,7 +95,7 @@ const quizData = [
 
 const quiz = new Quiz(quizData);
 
-export const renderQuestions = () => {
+export function renderQuestions() {
   const questionsContainer = document.querySelector("#questions-container");
   questionsContainer.innerHTML = "";
 
@@ -101,31 +105,59 @@ export const renderQuestions = () => {
     questionElement.innerHTML = `
           <p>${index + 1}. ${question.question}</p>
           <div class="options-container">
-            ${question.options.map((option, optionIndex) => `
+            ${question.options
+        .map(
+          (option, optionIndex) => `
               <input type="radio" id="option-${index}-${optionIndex}" name="option-${index}" value="${option}">
-              <label for="option-${index}-${optionIndex}">${option}</label>
-            `).join("")}
+              <label for="option-${index}-${optionIndex}">${option}</label><br>
+            `
+        )
+        .join("")}
           </div>
         `;
     questionsContainer.appendChild(questionElement);
   });
 
   document.querySelector("#submit-btn").style.display = "block";
-};
+}
 
-export const submitAnswers = () => {
+export function submitAnswers() {
   const forms = document.querySelectorAll("#quiz-form .options-container");
   forms.forEach((form, index) => {
+    const question = quiz.questions[index];
     const selectedOption = form.querySelector(`input[name="option-${index}"]:checked`);
+    const questionContainer = form.parentElement;
+
+    // Remove existing correct answer display
+    const existingCorrectAnswerDisplay = questionContainer.querySelector(".correct-answer");
+    if (existingCorrectAnswerDisplay) {
+      existingCorrectAnswerDisplay.remove();
+    }
+
     if (selectedOption) {
       quiz.answerQuestion(selectedOption.value);
+      const selectedLabel = form.querySelector(`label[for="${selectedOption.id}"]`);
+
+      if (selectedOption.value !== question.correct_option) {
+        // Indicate the selected option is incorrect
+        selectedLabel.classList.add("incorrect");
+        // Display the correct answer below the options
+        const correctAnswerDisplay = document.createElement("div");
+        correctAnswerDisplay.classList.add("correct-answer");
+        correctAnswerDisplay.textContent = `Correct Answer: ${question.correct_option}`;
+        correctAnswerDisplay.style.color = "green";
+        questionContainer.appendChild(correctAnswerDisplay);
+      } else {
+        selectedLabel.classList.add("correct");
+      }
     }
   });
 
   renderResult();
-};
+}
 
-const renderResult = () => {
+
+function renderResult() {
   const resultContainer = document.querySelector("#result-container");
   resultContainer.style.display = "block";
   resultContainer.textContent = `Score: ${quiz.score}/${quiz.totalQuestions}`;
@@ -136,10 +168,18 @@ const renderResult = () => {
     radio.checked = false;
   });
   quiz.resetQuiz();
-};
+}
 
-export const resetQuiz = () => {
-  console.log("resetQuiz called");
-  renderResult();
+export function resetQuiz() {
+  // Reset the quiz data
+  quiz.resetQuiz();
+  // Reset the UI
+  document.querySelectorAll("#quiz-form label").forEach(label => {
+    label.style.backgroundColor = "";
+  });
+  renderQuestions();
   document.querySelector("#submit-btn").style.display = "block";
-};
+  // Hide the result container since the quiz is starting over
+  const resultContainer = document.querySelector("#result-container");
+  resultContainer.style.display = "none";
+}

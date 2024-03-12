@@ -1,4 +1,4 @@
-export const submitAnswers = () => {
+export function submitAnswers() {
   const forms = document.querySelectorAll("#quiz-form .options-container");
   forms.forEach((form, index) => {
     const selectedOption = form.querySelector(
@@ -10,4 +10,4 @@ export const submitAnswers = () => {
   });
 
   renderResult();
-};
+}
