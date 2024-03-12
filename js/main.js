@@ -17,4 +17,6 @@ renderQuestions();
 animateQuestions();
 
 document.querySelector("#submit-btn").onclick = submitAnswers;
+
+
 document.querySelector("#reset-btn").onclick = resetQuiz;

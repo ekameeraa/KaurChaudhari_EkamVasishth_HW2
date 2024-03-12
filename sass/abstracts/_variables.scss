@@ -1,5 +1,13 @@
 // _variables.scss
+@use "fonts";
+
 $font-stack: 'Raleway', sans-serif;
 $text-color: #333;
-$background-color: #fff;
-$primary-color: #007bff; // Example primary color
+$background-color: #fff; // Consider renaming if conflicting with $bg-color
+$primary-color: #007bff; // From dev.vc, consider if you need to merge this with the main branch's $primary-color
+$secondary-color: #c7bcbc; // From main
+$accent-color: #fafafa; // From main, ensure this is distinct and necessary alongside $primary-color
+$bg-color: #820404; // From main
+$color: #000000; // From main, ensure this is distinct and necessary alongside $text-color
+$heading-font-family: "raleway-bold"; // From main
+$body-font-family: "raleway-regular"; // From main
