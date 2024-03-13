@@ -122,39 +122,55 @@ export function renderQuestions() {
 }
 
 export function submitAnswers() {
-  const forms = document.querySelectorAll("#quiz-form .options-container");
-  forms.forEach((form, index) => {
-    const question = quiz.questions[index];
-    const selectedOption = form.querySelector(`input[name="option-${index}"]:checked`);
-    const questionContainer = form.parentElement;
+  let answeredCount = 0;
+  quiz.score = 0;
 
+  quiz.questions.forEach((question, index) => {
+    const selectedOption = document.querySelector(`input[name="option-${index}"]:checked`);
+    const questionContainer = document.querySelector(`#questions-container .question:nth-child(${index + 1})`);
 
-    const existingCorrectAnswerDisplay = questionContainer.querySelector(".correct-answer");
-    if (existingCorrectAnswerDisplay) {
-      existingCorrectAnswerDisplay.remove();
+    const existingFeedback = questionContainer.querySelector(".feedback");
+    if (existingFeedback) {
+      existingFeedback.remove();
     }
 
     if (selectedOption) {
-      quiz.answerQuestion(selectedOption.value);
-      const selectedLabel = form.querySelector(`label[for="${selectedOption.id}"]`);
+      answeredCount++;
 
-      if (selectedOption.value !== question.correct_option) {
+      const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
+      selectedLabel.classList.remove("correct", "incorrect");
 
+      if (selectedOption.value === question.correct_option) {
+        quiz.score++;
+        selectedLabel.classList.add("correct");
+      } else {
         selectedLabel.classList.add("incorrect");
-
         const correctAnswerDisplay = document.createElement("div");
         correctAnswerDisplay.classList.add("correct-answer");
         correctAnswerDisplay.textContent = `Correct Answer: ${question.correct_option}`;
         correctAnswerDisplay.style.color = "green";
         questionContainer.appendChild(correctAnswerDisplay);
-      } else {
-        selectedLabel.classList.add("correct");
       }
+    } else {
+      const feedbackElement = document.createElement("div");
+      feedbackElement.classList.add("feedback");
+      feedbackElement.textContent = "Unanswered";
+      feedbackElement.style.color = "red";
+      questionContainer.appendChild(feedbackElement);
     }
   });
 
-  renderResult();
+  const answeredInfoElement = document.querySelector("#answered-info");
+  if (answeredCount === 0) {
+    answeredInfoElement.textContent = "Please answer at least one question before submitting.";
+  } else {
+
+    answeredInfoElement.textContent = `You have answered ${answeredCount} out of ${quiz.questions.length} questions.`;
+    renderResult();
+  }
 }
+
+
 
 
 function renderResult() {
@@ -171,15 +187,28 @@ function renderResult() {
 }
 
 export function resetQuiz() {
-
   quiz.resetQuiz();
 
   document.querySelectorAll("#quiz-form label").forEach(label => {
-    label.style.backgroundColor = "";
+    label.classList.remove("correct", "incorrect");
   });
+
   renderQuestions();
+
   document.querySelector("#submit-btn").style.display = "block";
 
   const resultContainer = document.querySelector("#result-container");
-  resultContainer.style.display = "none";
+  if (resultContainer) {
+    resultContainer.style.display = "none";
+    resultContainer.textContent = "";
+  }
+
+  const answeredInfoElement = document.querySelector("#answered-info");
+  if (answeredInfoElement) {
+    answeredInfoElement.textContent = "";
+  }
+
 }
+
+document.querySelector("#reset-btn").addEventListener('click', resetQuiz);
+
