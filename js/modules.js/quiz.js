@@ -120,6 +120,10 @@ export function renderQuestions() {
 
   document.querySelector("#submit-btn").style.display = "block";
 }
+function updateProgressBar() {
+  const progressPercentage = (quiz.currentQuestionIndex / quiz.questions.length) * 100;
+  document.querySelector('#progress-bar').style.width = `${progressPercentage}%`;
+}
 
 export function submitAnswers() {
   let answeredCount = 0;
