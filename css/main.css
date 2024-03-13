@@ -107,6 +107,22 @@ button:hover {
   margin-bottom: 30px;
 }
 
+#quiz-status {
+  margin-top: 20px;
+  color: #333;
+  font-size: 16px;
+}
+
+.feedback {
+  color: red;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.correct-answer {
+  color: green;
+}
+
 /* Responsive adjustments */
 @media (max-width: 640px) {
   #quiz-container {

@@ -23,7 +23,11 @@
   <div id="quiz-container">
     <h2 class="hidden">Quiz</h2>
     <form id="quiz-form" onsubmit="return false;">
+
       <div id="questions-container">
+      </div>
+      <div id="quiz-status">
+        <p id="answered-info"></p>
       </div>
       <button type="submit" id="submit-btn">Submit Answers</button>
     </form>
@@ -31,11 +35,11 @@
     <button id="reset-btn">Reset Quiz</button>
     <div id="result-container" style="display: none"></div>
   </div>
-  <!-- footer -->
-  <footer class="copyright">
+
+  <footer class="copyright col-span-full l-col-span-full">
     <div class="footer-copyright">@2024 Copyright - WWE NETWORK.</div>
   </footer>
-  <!-- js -->
+
   <script defer type="module" src="js/main.js"></script>
 </body>
 
