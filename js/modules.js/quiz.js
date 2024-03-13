@@ -194,10 +194,12 @@ export function resetQuiz() {
   quiz.resetQuiz();
 
   document.querySelectorAll("#quiz-form label").forEach(label => {
+
     label.classList.remove("correct", "incorrect");
   });
 
   renderQuestions();
+
 
   document.querySelector("#submit-btn").style.display = "block";
 
